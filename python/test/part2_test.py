@@ -76,7 +76,6 @@ def test_add_to_playlist_nonexistent_playlist_nonexistent_video(capfd):
     assert len(lines) == 1
     assert "Cannot add video to another_playlist: Playlist does not exist" in lines[0]
 
-
 def test_show_all_playlists_no_playlists_exist(capfd):
     player = VideoPlayer()
     player.show_all_playlists()
@@ -215,7 +214,6 @@ def test_clear_playlist_nonexistent(capfd):
     lines = out.splitlines()
     assert len(lines) == 1
     assert "Cannot clear playlist my_cool_playlist: Playlist does not exist" in lines[0]
-
 
 def test_delete_playlist(capfd):
     player = VideoPlayer()

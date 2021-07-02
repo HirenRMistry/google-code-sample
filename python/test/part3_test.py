@@ -8,6 +8,7 @@ def test_search_videos_with_no_answer(capfd):
     player.search_videos("cat")
     out, err = capfd.readouterr()
     lines = out.splitlines()
+    print(lines)
     assert len(lines) == 5
     assert "Here are the results for cat:" in lines[0]
     assert "1) Amazing Cats (amazing_cats_video_id) [#cat #animal]" in lines[1]
@@ -55,7 +56,6 @@ def test_search_videos_number_out_of_bounds(capfd):
             "it's a no.") in lines[4]
     assert "Playing video" not in out
 
-
 @mock.patch('builtins.input', lambda *args: 'ab3g')
 def test_search_videos_invalid_number(capfd):
     player = VideoPlayer()
@@ -79,6 +79,7 @@ def test_search_videos_no_results(capfd):
     player.search_videos("blah")
     out, err = capfd.readouterr()
     lines = out.splitlines()
+    print(lines)
     assert len(lines) == 1
     assert "No search results for blah" in lines[0]
 
