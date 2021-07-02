@@ -15,6 +15,9 @@ class Video:
         # in case the caller changes the 'video_tags' they passed to us
         self._tags = tuple(video_tags)
 
+        self._flag = False
+        self._flag_reason = ""
+
     @property
     def title(self) -> str:
         """Returns the title of a video."""
@@ -29,3 +32,21 @@ class Video:
     def tags(self) -> Sequence[str]:
         """Returns the list of tags of a video."""
         return self._tags
+    
+    @property
+    def flag(self) -> bool:
+        """Returns whether the video has been flagged or not"""
+        return self._flag
+    
+    @property
+    def flag_reason(self) -> str:
+        """Returns whether the reason for the video being flagged"""
+        return self._flag_reason
+    
+    def flag_video(self, reason):
+        self._flag = True
+        self._flag_reason = reason
+    
+    def unflag_video(self):
+        self._flag = True
+        self._flag_reason = ""

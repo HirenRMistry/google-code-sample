@@ -18,6 +18,7 @@ def test_flag_video_without_reason(capfd):
     player.flag_video("another_cat_video_id")
     out, err = capfd.readouterr()
     lines = out.splitlines()
+    print(lines)
     assert len(lines) == 1
     assert "Successfully flagged video: Another Cat Video " \
            "(reason: Not supplied)" in lines[0]
@@ -104,6 +105,7 @@ def test_flag_video_show_playlist(capfd):
     player.show_playlist("my_playlist")
     out, err = capfd.readouterr()
     lines = out.splitlines()
+    print(lines)
     assert len(lines) == 5
     assert "Successfully created new playlist: my_playlist" in lines[0]
     assert "Added video to my_playlist: Amazing Cats" in lines[1]
@@ -112,7 +114,6 @@ def test_flag_video_show_playlist(capfd):
     assert "Showing playlist: my_playlist" in lines[3]
     assert ("Amazing Cats (amazing_cats_video_id) [#cat #animal] - FLAGGED "
             "(reason: dont_like_cats)") in lines[4]
-
 
 def test_flag_video_show_all_videos(capfd):
     player = VideoPlayer()

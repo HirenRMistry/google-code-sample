@@ -104,6 +104,7 @@ def test_play_random_video(capfd):
     out, err = capfd.readouterr()
     lines = out.splitlines()
     assert len(lines) == 1
+    print(lines)
     assert re.match(
         "Playing video: (Amazing Cats|Another Cat Video|Funny Dogs|Life at Google|Video about nothing)",
         out)
